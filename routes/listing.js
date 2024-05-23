@@ -24,7 +24,7 @@ router.route("/")
 
 
 //New Route
-router.get(
+router.get( 
     "/new",
     isLoggedIn,
     ListingController.renderNewForm
@@ -33,7 +33,7 @@ router.get(
 
 router.route("/:id")
 .get(
-    wrapAsync(ListingController.showListing)
+    wrapAsync(ListingController.showListing)    
 )
 .put(
     isLoggedIn,
