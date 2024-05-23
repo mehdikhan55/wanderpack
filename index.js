@@ -31,7 +31,7 @@ const userRouter= require("./routes/users.js");
 
 main().then(() => console.log('Connected to DB...')).catch(err => console.log('Error:', err));
 async function main() {
-    await mongoose.connect(`${dbUrl}`)
+    await mongoose.connect(dbUrl)
 }
 
 
@@ -45,9 +45,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 const store = MongoStore.create({
-    mongoUrl: `${dbUrl}`,
+    mongoUrl: dbUrl,
     crypto:{
-        secret: `${process.env.SECRET}`,
+        secret: process.env.SECRET,
         touchAfter: 24 * 3600, //time period in seconds
     }
 })
@@ -58,7 +58,7 @@ store.on("error",(err)=>{
 
 const sessionOptions = {
     store,
-    secret: `${process.env.SECRET}`,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
