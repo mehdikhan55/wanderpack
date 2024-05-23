@@ -14,6 +14,17 @@ module.exports.isLoggedIn=(req,res,next)=>{
     next();
 }
 
+module.exports.isLoggedInForReview=(req,res,next)=>{
+    if (!req.isAuthenticated()) {
+        //redirect url
+        req.flash("error","You must be logged in for this action!")
+        res.redirect('/login');
+    }  else{
+        next();
+    }
+  
+}
+
 module.exports.saveRedirectUrl=(req,res,next)=>{
     if(req.session.redirectUrl){
         res.locals.redirectUrl=req.session.redirectUrl;
@@ -62,16 +73,20 @@ module.exports.validateReview =(req,res,next)=>{
 
 module.exports.isReviewAuthor=async(req,res,next)=>{
     let {id,reviewId}=req.params;
+    console.log(res.locals.currUser)
     let review=await Review.findById(reviewId);
-    if(review.author != undefined){
-    if(!review.author.equals(res.locals.currUser._id)){
-        req.flash("error","You are not the author of this review!");
+
+    
+    if((typeof res.locals.currUser === 'undefined')){
+        console.log("User is not logged in");
+        req.flash("error","You must be logged in for this action!");
         return res.redirect(`/listings/${id}`);
-    }
+    }else if (!review.author.equals(res.locals.currUser._id)) {
+        req.flash("error", "You are not the author of this review!");
+        return res.redirect(`/listings/${id}`);
     }else{
-        req.flash("error","You are not the author of this review!");
-        return res.redirect(`/listings/${id}`);
+        next();
     }
-    next();
+
     
 }
