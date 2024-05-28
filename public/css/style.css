@@ -135,7 +135,7 @@ body{
 
 .search-input{
     border-radius: 25px !important;
-    padding:0.5rem 3rem 0.5rem 3rem !important; 
+    padding:0.5rem 2rem 0.5rem 2rem !important; 
     border:1px solid #fc424d !important;
 }
 
@@ -205,6 +205,11 @@ body{
     .navbar-drop{
         z-index: 2 !important;
         background-color: #fff !important;
+    }
+    .search-input{
+        border-radius: 25px !important;
+        padding:0.5rem 1.5rem 0.5rem 1.5rem !important; 
+        border:1px solid #fc424d !important;
     }
   }
 @media only screen and (min-width: 767px) {
