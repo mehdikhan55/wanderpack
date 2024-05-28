@@ -197,6 +197,34 @@ body{
     margin-bottom: 1rem;
     padding-inline: .5rem;
 }
+.review-container{
+    background-color: #fc424d;
+    width: 100%;
+}
+.reviews-wrapper{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.review{
+    min-width: 40% !important;
+    padding: .5rem !important;
+}
+
+
+.map-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.social-link{
+    text-decoration: none;
+    color: #222222; 
+}
 
 @media only screen and (max-width: 767px) {
     .hide-it {
@@ -229,3 +257,5 @@ body{
         padding: .5rem 1rem .5rem 1rem !important;
     }
   }
+
+
