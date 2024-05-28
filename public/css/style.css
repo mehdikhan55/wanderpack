@@ -12,7 +12,6 @@ body{
 /* Navbar */
 .navbar{
     height: 5rem;
-    background-color: white;
 }
 .fa-compass{ 
     color:#fe424d;
@@ -112,12 +111,13 @@ body{
 .search-btn {
     background-color: #fc424d !important;  
     color: #fff !important;
-    border-radius: 25px !important;
+    border-radius: 1.3rem !important;
     padding: 0 1rem 0 1rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
+  
 }
 .search-btn:hover{
     background-color: #fc424d !important;
@@ -136,6 +136,7 @@ body{
 .search-input{
     border-radius: 25px !important;
     padding:0.5rem 3rem 0.5rem 3rem !important; 
+    border:1px solid #fc424d !important;
 }
 
 /* filters and tax btn  */
@@ -145,7 +146,9 @@ body{
     align-items: center;
     row-gap: 0;
     column-gap: 2rem;
-    
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem !important;
 }
 @media screen and (max-width: 768px){
     #filters{
@@ -181,3 +184,43 @@ body{
 }   
 
 
+.search-input:focus{
+    border: 1px solid #fc424d !important;
+    box-shadow: 0 0 0 0.2rem rgb(252 66 77 / 25%) !important;
+
+}
+.search-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-inline: .5rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .hide-it {
+      display: none !important;
+    }
+    .navbar-drop{
+        z-index: 2 !important;
+        background-color: #fff !important;
+    }
+  }
+@media only screen and (min-width: 767px) {
+    .search-hide{
+        display: none !important;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .search-wrapper > form{
+        align-items: center;
+        justify-content: center;
+        row-gap: .5rem;
+        flex-wrap: wrap;
+    }
+    .search-wrapper>form>button{
+        padding: .5rem 1rem .5rem 1rem !important;
+    }
+  }
