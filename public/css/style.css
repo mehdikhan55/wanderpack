@@ -223,6 +223,7 @@ body{
 
 .social-link{
     text-decoration: none;
+    cursor: pointer;
     color: #222222; 
 }
 
