@@ -7,7 +7,7 @@ module.exports.isLoggedIn=(req,res,next)=>{
     if (!req.isAuthenticated()) {
         //redirect url
         req.session.redirectUrl=req.originalUrl;
-        console.log(req.session.redirectUrl)
+        console.log("redirect url: ",req.session.redirectUrl)
         req.flash("error","You must be logged in for this action!")
         res.redirect('/login');
     }  
@@ -17,8 +17,10 @@ module.exports.isLoggedIn=(req,res,next)=>{
 module.exports.isLoggedInForReview=(req,res,next)=>{
     if (!req.isAuthenticated()) {
         //redirect url
-        req.flash("error","You must be logged in for this action!")
-        res.redirect('/login');
+        req.flash("error","You must be logged in for this action!");
+        req.session.redirectUrlReview=req.originalUrl.split("/").slice(0,3).join("/");
+        console.log("redirect url: ",req.session.redirectUrlReview)
+        res.redirect(`${req.session.redirectUrlReview}`);
     }  else{
         next();
     }
