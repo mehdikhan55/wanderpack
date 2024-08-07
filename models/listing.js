@@ -15,8 +15,8 @@ const listingSchema = new Schema({
     //     default: "https://images.unsplash.com/photo-1682685797507-d44d838b0ac7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     //     set: v => v === "" ? "https://images.unsplash.com/photo-1682685797507-d44d838b0ac7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" : v,
     // },
-    image:{
-        url:String,
+    image: {
+        url: String,
         filename: String,
     },
     price: {
@@ -34,25 +34,34 @@ const listingSchema = new Schema({
             ref: "Review"
         }
     ],
-    owner:{
-        type : Schema.Types.ObjectId,
-        ref:"User",
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
     },
     // coordinates:{
     //     type:[Number],
     //     required:true
     // }
-    geometry:{
-        type:{
-            type:String,// Don't do `{ location: { type: String } }`
-            enum:["Point"],// 'location.type' must be 'Point'
-            required:true
+    geometry: {
+        type: {
+            type: String,// Don't do `{ location: { type: String } }`
+            enum: ["Point"],// 'location.type' must be 'Point'
+            required: true
         },
-        coordinates:{
-            type:[Number],
-            required:true
+        coordinates: {
+            type: [Number],
+            required: true
         }
+    },
+    contactPhoneNo: {
+        type: String,
+        required: true
+    },
+    contactEmail: {
+        type: String,
+        required: true
     }
+
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
