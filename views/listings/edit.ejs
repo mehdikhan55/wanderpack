@@ -52,12 +52,12 @@
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Phone No.</label>
-                        <input required type="tel" name="listing[contactPhoneNo]" placeholder="" class="form-control" />
+                        <input required type="tel"  value="<%=listing.contactPhoneNo%>" name="listing[contactPhoneNo]" placeholder="" class="form-control" />
                         <div class="invalid-feedback">Phone No. required!</div>
                     </div>
                     <div class="mb-3 col-md-8">
                         <label for="country" class="form-label">Email</label>
-                        <input required type="email" name="listing[contactEmail]" placeholder="abc@gmail.com"  class="form-control"/>
+                        <input required type="email"  value="<%=listing.contactEmail%>" name="listing[contactEmail]" placeholder="abc@gmail.com"  class="form-control"/>
                         <div class="invalid-feedback">Contact email must be valid!</div>
                     </div>  
                 </div>   
